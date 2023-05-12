@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  api-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8091:8091"
+    image: api
+    container_name: api-test
+    restart: unless-stopped
+    working_dir: /app
+networks:
+  default:
+    external:
+      name: challenge-ml

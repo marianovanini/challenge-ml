@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  agent-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    image: agent
+    container_name: agent-test
+    restart: unless-stopped
+    working_dir: /app
+networks:
+  default:
+    external:
+      name: challenge-ml
